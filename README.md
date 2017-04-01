@@ -14,5 +14,5 @@ These modules are tested under PowerShell version 5+
 
 ### 0.1.0: Initial Release
 
-* Download: [scaleft-powershell-0.1.0.zip]()
+* Download: [scaleft-powershell-0.1.0.zip](https://dist.scaleft.com/powershell/v0.1.0/scaleft-powershell-0.1.0.zip)
 * SHA256: `529387959e8fd66b2f42959c14ef8905df9d36eb69ca918cbd8c6c3b9da11648`
