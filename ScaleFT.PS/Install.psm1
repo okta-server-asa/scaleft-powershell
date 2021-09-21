@@ -94,7 +94,7 @@ function Install-ScaleFTServerTools(){
         $ErrorActionPreference = "Stop";
 
         # ScaleFT Authenticode Signing Certificate
-        $pinnedCertId = "d8b60e6457c0c67113ab0a2a5f66eccc63d9ec4d"
+        $pinnedCertId = "EAD228893EEB01615136725DCE136FF8457E4424"
         $installerURL = ""
         if ($PSBoundParameters.ContainsKey("ToolsVersion")) {
             if ($ReleaseChannel -eq "stable") {
