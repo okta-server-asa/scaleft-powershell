@@ -48,7 +48,7 @@ function Get-URL-With-Authenticode(){
             throw "error: signature for $($output) is invalid: $($sig.Status) from $($sig.SignerCertificate.ToString())"
         }
 
-        if ($sig.SignerCertificate.GetCertHashString() -ne $pinnedCertId) {
+ 	if ($sig.SignerCertificate.GetCertHashString() -ne $pinnedCertId) {
             echo "error: signature for $($output) is from wrong certificate: $($sig.SignerCertificate.GetCertHashString()) from $($sig.SignerCertificate.ToString())"
             throw "error: signature for $($output) is from wrong certificate: $($sig.SignerCertificate.GetCertHashString()) from $($sig.SignerCertificate.ToString())"
         }
@@ -94,7 +94,7 @@ function Install-ScaleFTServerTools(){
         $ErrorActionPreference = "Stop";
 
         # ScaleFT Authenticode Signing Certificate
-        $pinnedCertId = "d8b60e6457c0c67113ab0a2a5f66eccc63d9ec4d"
+        $pinnedCertId = "EAD228893EEB01615136725DCE136FF8457E4424"
         $installerURL = ""
         if ($PSBoundParameters.ContainsKey("ToolsVersion")) {
             if ($ReleaseChannel -eq "stable") {
@@ -111,7 +111,7 @@ function Install-ScaleFTServerTools(){
         }
 
         # Select Local System User, where the ScaleFT Server Agent Runs
-        $systemprofile = (Get-WmiObject win32_userprofile  | where-object sid -eq "S-1-5-18" | select -ExpandProperty localpath)
+        $systemprofile = (Get-CIMInstance win32_userprofile  | where-object sid -eq "S-1-5-18" | select -ExpandProperty localpath)
         $stateDir = Join-Path $systemprofile -ChildPath 'AppData' | Join-Path -ChildPath "Local" | Join-Path -ChildPath "ScaleFT"
     
         if ($PSBoundParameters.ContainsKey("EnrollmentToken")) {
